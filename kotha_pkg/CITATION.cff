@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using these metadata."
+title: "KOTHA: RCT-anchored conditional borrowing workflow"
+version: 0.2.0rc1
+authors:
+  - family-names: Onishi
+    given-names: Tatsuki
+license: MIT
+repository-code: "https://github.com/bougtoir/kotha"

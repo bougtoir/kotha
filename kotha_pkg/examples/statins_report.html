@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'>
+<meta http-equiv='Content-Security-Policy' content="default-src 'none'; style-src 'unsafe-inline'">
+<title>KOTHA report statins-hf-r1</title><style>body{font-family:system-ui,sans-serif;max-width:1100px;margin:1rem auto;padding:0 1rem;color:#111}table{border-collapse:collapse;width:100%;margin:.5rem 0}td,th{border:1px solid #999;padding:.25rem .4rem;font-size:.85rem;text-align:left}.warn{border:2px solid #a00;background:#fff4f4;padding:.5rem 1rem}.expl{border:2px dashed #a60;padding:.5rem;background:#fffaf0}.prim{border:2px solid #035;padding:.5rem;background:#f3f8ff}code{font-size:.8rem;word-break:break-all}</style></head><body>
+<h1>KOTHA analysis report: Statins in chronic heart failure (R1 empirical case)</h1>
+<div class='warn'><strong>Limitations (always shown)</strong><ul>
+<li>Research use only. Not validated for individual treatment decisions.</li>
+<li>Aggregate data cannot distinguish bias in external evidence from genuine effect modification.</li>
+<li>No automatic causal transportability: compatibility statistics are not evidence of exchangeability.</li>
+<li>In the R1 simulations, the KOTHA workflow showed no net decision advantage over robust MAP combined with the same observable screen.</li>
+<li>The prespecified Stage C beneficial-borrowing threshold failed in R1 (0.4895 &lt; 0.5).</li>
+<li>The Stage C design-credibility judgement is recorded as entered by the named assessor; the software does not verify it.</li>
+</ul></div>
+<h2>1. Target estimand</h2><table>
+<tr><th>population</th><td>adults with chronic heart failure</td></tr>
+<tr><th>treatment_contrast</th><td>statin vs placebo/no statin</td></tr>
+<tr><th>outcome</th><td>all-cause death</td></tr>
+<tr><th>follow_up</th><td>approximately 1-4 years</td></tr>
+<tr><th>effect_measure</th><td>HR</td></tr>
+<tr><th>estimand_type</th><td>ITT</td></tr>
+<tr><th>clinically relevant ratio</th><td>0.850</td></tr></table>
+<h2>2. Inputs and provenance</h2><table><tr><th>label</th><th>role</th><th>measure</th><th>estimate</th><th>CI / SE (log)</th><th>population</th><th>contrast</th><th>outcome</th><th>follow-up</th><th>estimand</th><th>source</th><th>locator</th><th>verification</th></tr>
+<tr><td>CORONA 2007</td><td>rct</td><td>HR</td><td>0.950</td><td>0.860–1.050 (0.950)</td><td>age&gt;=60 NYHA II-IV ischaemic systolic HF</td><td>rosuvastatin vs placebo</td><td>all-cause death</td><td>median 32.8 months</td><td>mITT</td><td>10.1056/NEJMoa0706201</td><td>PMID 17984166; quoted: 0.95; 95% CI, 0.86 to 1.05</td><td>full_text</td></tr>
+<tr><td>GISSI-HF 2008</td><td>rct</td><td>HR</td><td>1.000</td><td>0.898–1.122 (0.955)</td><td>age&gt;=18 chronic HF NYHA II-IV any cause</td><td>rosuvastatin vs placebo</td><td>all-cause death</td><td>median 3.9 years</td><td>ITT</td><td>10.1016/S0140-6736(08)61240-4</td><td>PMID 18757089; quoted: 1.00 [95.5% CI 0.898-1.122]</td><td>abstract</td></tr>
+<tr><td>Mozaffarian 2004</td><td>external</td><td>HR</td><td>0.520</td><td>0.300–0.890 (0.950)</td><td>EF&lt;30% NYHA IIIB-IV severe HF</td><td>statin use vs non-use (nonrandomised)</td><td>all-cause death</td><td>mean 1.3 years</td><td>other</td><td>10.1016/j.amjcard.2004.01.039</td><td>PMID 15110204; quoted: 0.52, 95% confidence interval 0.30 to 0.89</td><td>full_text</td></tr>
+<tr><td>Go 2006</td><td>external</td><td>HR</td><td>0.760</td><td>0.720–0.800 (0.950)</td><td>adults with chronic HF no prior statin</td><td>statin use vs non-use (nonrandomised)</td><td>all-cause death</td><td>median 2.4 years</td><td>other</td><td>10.1001/jama.296.17.2105</td><td>PMID 17077375; quoted: 0.76 [95% confidence interval, 0.72-0.80]</td><td>abstract</td></tr>
+<tr><td>Foody 2006</td><td>external</td><td>HR</td><td>0.820</td><td>0.790–0.850 (0.950)</td><td>age&gt;=65 hospitalised HF no contraindication</td><td>statin use vs non-use (nonrandomised)</td><td>all-cause death (3-year)</td><td>3 years</td><td>other</td><td>10.1161/CIRCULATIONAHA.105.591446</td><td>PMID 16490817; quoted: 0.82; 95% CI, 0.79 to 0.85</td><td>abstract</td></tr>
+<tr><td>Anker 2006 (ELITE 2)</td><td>external</td><td>HR</td><td>0.660</td><td>0.470–0.930 (0.950)</td><td>CHF trial participants</td><td>statin use vs non-use (nonrandomised)</td><td>all-cause death</td><td>not stated in abstract</td><td>other</td><td>10.1016/j.ijcard.2006.03.057</td><td>PMID 16846656; quoted: adjusted HR 0.66, 95% CI 0.47-0.93</td><td>abstract</td></tr>
+<tr><td>Anker 2006 (5 centres)</td><td>external</td><td>HR</td><td>0.580</td><td>0.440–0.770 (0.950)</td><td>CHF referral patients</td><td>statin use vs non-use (nonrandomised)</td><td>all-cause death</td><td>not stated in abstract</td><td>other</td><td>10.1016/j.ijcard.2006.03.057</td><td>PMID 16846656; quoted: adjusted HR 0.58, 95% CI 0.44-0.77</td><td>abstract</td></tr>
+</table>
+<p>Provenance complete: <strong>yes</strong></p>
+<ul><li><code>F_ESTIMAND_MISMATCH</code> estimates[0]: estimand type &#x27;mITT&#x27; differs from target &#x27;ITT&#x27;; pooled values do not estimate the same quantity</li><li><code>F_ESTIMAND_MISMATCH</code> estimates[2]: estimand type &#x27;other&#x27; differs from target &#x27;ITT&#x27;; pooled values do not estimate the same quantity</li><li><code>F_ESTIMAND_MISMATCH</code> estimates[3]: estimand type &#x27;other&#x27; differs from target &#x27;ITT&#x27;; pooled values do not estimate the same quantity</li><li><code>F_ESTIMAND_MISMATCH</code> estimates[4]: estimand type &#x27;other&#x27; differs from target &#x27;ITT&#x27;; pooled values do not estimate the same quantity</li><li><code>F_ESTIMAND_MISMATCH</code> estimates[5]: estimand type &#x27;other&#x27; differs from target &#x27;ITT&#x27;; pooled values do not estimate the same quantity</li><li><code>F_ESTIMAND_MISMATCH</code> estimates[6]: estimand type &#x27;other&#x27; differs from target &#x27;ITT&#x27;; pooled values do not estimate the same quantity</li></ul>
+<h2>3. Primary result: RCT-only</h2><div class='prim'>
+<p>Median ratio 0.974 (95% CrI 0.619–1.535); P(ratio &lt; 1) = 0.625; k = 2; information fraction vs ratio 0.85 = 2.388.</p></div>
+<h2>4. Stage C design-credibility record (user-authored, not verified by software)</h2><table>
+<tr><th>judgement</th><td>not_credible</td></tr>
+<tr><th>reason: confounding</th><td>nonrandomised statin use; healthy-user and indication bias plausible</td></tr>
+<tr><th>reason: treatment_definition</th><td>time-varying, as-treated exposure (e.g. Mozaffarian 2004) vs randomised assignment</td></tr>
+<tr><th>reason: outcome</th><td>all-cause death in all sources</td></tr>
+<tr><th>reason: population</th><td>observational cohorts include patients unlike trial populations</td></tr>
+<tr><th>reason: negative_controls</th><td>no negative-control outcomes available in the published aggregates</td></tr>
+<tr><th>uncertainty</th><td>high</td></tr>
+<tr><th>assessor</th><td>DEMONSTRATION ONLY (mirrors the R1 manuscript reasoning; not an independent expert judgement)</td></tr>
+<tr><th>date</th><td>2026-11-22</td></tr>
+</table>
+<p>Prior-data conflict: z = 0.940, p = 0.347. Statistical prior-data conflict diagnostic only; it is not a design or causal assessment.</p>
+<h2>5. Borrowing analyses</h2><div class='expl'><p><strong>EXPLORATORY — not supported by recorded design judgement</strong></p>
+<table><tr><th>method</th><th>median ratio</th><th>95% CrI</th><th>P(ratio&lt;1)</th><th>borrowing strength</th></tr>
+<tr><td>Fixed-alpha power prior (alpha=0.1)</td><td>0.955</td><td>0.626–1.208</td><td>0.724</td><td>0.100</td></tr>
+<tr><td>Fixed-alpha power prior (alpha=0.2)</td><td>0.941</td><td>0.623–1.131</td><td>0.790</td><td>0.200</td></tr>
+<tr><td>Fixed-alpha power prior (alpha=0.3)</td><td>0.926</td><td>0.620–1.091</td><td>0.839</td><td>0.300</td></tr>
+<tr><td>Fixed-alpha power prior (alpha=0.5)</td><td>0.894</td><td>0.617–1.048</td><td>0.909</td><td>0.500</td></tr>
+<tr><td>Fixed-alpha power prior (alpha=0.7)</td><td>0.856</td><td>0.616–1.021</td><td>0.950</td><td>0.700</td></tr>
+<tr><td>Fixed-alpha power prior (alpha=1.0)</td><td>0.810</td><td>0.618–0.992</td><td>0.982</td><td>1.000</td></tr>
+<tr><td>Normalised power prior (alpha~U(0,1))</td><td>0.903</td><td>0.618–1.095</td><td>0.868</td><td>0.460</td></tr>
+<tr><td>Robust MAP (w_vague=0.2)</td><td>0.940</td><td>0.622–1.138</td><td>0.792</td><td>0.938</td></tr>
+<tr><td>Robust MAP (w_vague=0.5)</td><td>0.945</td><td>0.622–1.191</td><td>0.767</td><td>0.790</td></tr>
+<tr><td>Robust MAP (w_vague=0.8)</td><td>0.955</td><td>0.621–1.321</td><td>0.714</td><td>0.485</td></tr>
+</table><p>Tipping alpha (smallest fixed alpha with P(ratio&lt;1) ≥ threshold): 0.975: 0.91; 0.95: 0.70</p></div>
+<p>External summary (log scale): m_E = -0.3398, V_E = 0.0148, E[tau_E^2] = 0.0511, k_E = 5.</p>
+<h2>6. Reproducibility</h2><table>
+<tr><th>analysis_id</th><td><code>statins-hf-r1</code></td></tr>
+<tr><th>input_hash</th><td><code>sha256:73627b5550601de8612f01712e5a4125ac0efe85902ed6853c031955ca8c0d44</code></td></tr>
+<tr><th>result_hash</th><td><code>sha256:934d9073ee5c43819ab6143bd68a988621ab9702997eefa93eef74f82b792f98</code></td></tr>
+<tr><th>created_at</th><td><code>2026-11-22T12:43:47+00:00</code></td></tr>
+<tr><th>kotha_version</th><td><code>0.2.0rc1</code></td></tr>
+<tr><th>schema_version</th><td><code>1.0</code></td></tr>
+<tr><th>engine_sha256</th><td><code>7b7d07f4bf6e29833ea869e82db5141258a8408682aa2f3ddd1e6059a8a2e7ef</code></td></tr>
+<tr><th>engine matches frozen R1 engine</th><td><code>True</code></td></tr>
+<tr><th>source commit</th><td><code>unrecorded</code></td></tr>
+<tr><th>runtime</th><td><code>{&#x27;access_path&#x27;: &#x27;python-cli&#x27;, &#x27;python&#x27;: &#x27;3.10.12&#x27;, &#x27;numpy&#x27;: &#x27;2.2.6&#x27;, &#x27;scipy&#x27;: &#x27;1.15.3&#x27;, &#x27;platform&#x27;: &#x27;linux&#x27;, &#x27;pyodide&#x27;: None}</code></td></tr>
+</table><p>Settings: tau ~ HalfNormal(0.5); vague prior N(0, 10^2); robust MAP vague component N(m_E, 2^2); 401-point tau grid.</p>
+</body></html>

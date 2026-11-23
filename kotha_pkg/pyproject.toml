@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kotha"
+version = "0.2.0rc1"
+description = "RCT-anchored conditional borrowing of external aggregate evidence with recorded design judgement (research use only)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "Tatsuki Onishi"}]
+dependencies = ["numpy>=1.24", "scipy>=1.10"]
+classifiers = ["Programming Language :: Python :: 3", "Intended Audience :: Science/Research", "Topic :: Scientific/Engineering :: Medical Science Apps."]
+
+[project.optional-dependencies]
+test = ["pytest>=7", "jsonschema>=4"]
+
+[project.scripts]
+kotha = "kotha.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+kotha = ["_build_info.json", "schemas/*.json", "_engine/*.py"]

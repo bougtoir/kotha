@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; connect-src 'self'; style-src 'self'; img-src 'self' data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>KOTHA — RCT-anchored conditional borrowing (research use only)</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="app.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header>
+<h1>KOTHA <span class="ver" id="ver">__KOTHA_VERSION__</span></h1>
+<p class="sub">RCT-anchored conditional borrowing of external aggregate evidence, with recorded design judgement. Aggregate statistics only; do not enter patient-level data.</p>
+</header>
+<section class="warn" aria-labelledby="lim-h">
+<h2 id="lim-h">Limitations (always shown)</h2>
+<ul id="limitations">__LIMITATIONS__</ul>
+</section>
+<main id="main">
+<section aria-labelledby="rt-h">
+<h2 id="rt-h">Runtime</h2>
+<p id="rt-status" role="status" aria-live="polite">Not started.</p>
+<progress id="rt-progress" max="5" value="0" aria-label="Runtime loading progress"></progress>
+<p class="small">All computation runs in this browser tab (Pyodide 0.26.4, self-hosted). Nothing is sent to a server by this page. Nothing is written to browser storage; reload or <button type="button" id="btn-clear">Clear all inputs</button> discards inputs.</p>
+<button type="button" id="btn-retry" hidden>Retry loading runtime</button>
+<details><summary>Runtime and self-check details</summary><pre id="rt-details"></pre></details>
+</section>
+
+<section aria-labelledby="def-h">
+<h2 id="def-h">1. Analysis definition</h2>
+<p><label for="example">Load an example:</label>
+<select id="example"><option value="">— choose —</option><option value="statins">Statins in heart failure (R1)</option><option value="magnesium">Magnesium in acute MI (R1)</option><option value="synthetic_credible">Synthetic: compatible, credible</option><option value="synthetic_not_credible">Synthetic: conflict, not credible</option></select>
+<button type="button" id="btn-example">Load</button>
+<label for="file-job" class="inline">or open a job file:</label> <input type="file" id="file-job" accept=".json,application/json"></p>
+<div class="grid">
+<label>Analysis ID <input id="analysis_id" required pattern="[A-Za-z0-9._\-]{1,64}" aria-describedby="aid-hint"></label><span id="aid-hint" class="small">Letters, digits, . _ - (max 64)</span>
+<label>Title <input id="title"></label>
+<label>Clinically relevant ratio <input id="clinically_relevant_ratio" inputmode="decimal" value="0.85"></label>
+</div>
+<fieldset><legend>Target estimand</legend><div class="grid">
+<label>Population <input id="t_population"></label>
+<label>Treatment contrast <input id="t_treatment_contrast"></label>
+<label>Outcome <input id="t_outcome"></label>
+<label>Follow-up <input id="t_follow_up"></label>
+<label>Effect measure (log scale) <select id="t_effect_measure"><option>HR</option><option>OR</option><option>RR</option></select></label>
+<label>Estimand type <select id="t_estimand_type"><option>ITT</option><option>mITT</option><option>as-treated</option><option>per-protocol</option><option>other</option></select></label>
+</div></fieldset>
+</section>
+
+<section aria-labelledby="est-h">
+<h2 id="est-h">2. Estimates and provenance</h2>
+<p>Enter each estimate with either a confidence interval and its level (e.g. 0.95), or a log-scale SE — not both.</p>
+<p><button type="button" id="btn-add">Add row</button>
+<label for="file-csv" class="inline">Import CSV:</label> <input type="file" id="file-csv" accept=".csv,text/csv">
+<button type="button" id="btn-csv-out">Download rows as CSV</button></p>
+<div class="tablewrap"><table id="est"><caption class="sr">Estimates</caption><thead><tr id="est-head"></tr></thead><tbody id="est-body"></tbody></table></div>
+</section>
+
+<section aria-labelledby="sc-h">
+<h2 id="sc-h">3. Stage C design-credibility record (your judgement)</h2>
+<p class="small">The software records this judgement; it does not assess or verify it, and it does not infer it from any statistical test.</p>
+<fieldset><legend>Judgement</legend>
+<label class="inline"><input type="radio" name="judgement" value="" checked> not recorded</label>
+<label class="inline"><input type="radio" name="judgement" value="credible"> credible</label>
+<label class="inline"><input type="radio" name="judgement" value="not_credible"> not credible</label>
+<label class="inline"><input type="radio" name="judgement" value="uncertain"> uncertain</label>
+</fieldset>
+<div class="grid2">
+<label>Confounding <textarea id="r_confounding" rows="2"></textarea></label>
+<label>Treatment definition <textarea id="r_treatment_definition" rows="2"></textarea></label>
+<label>Outcome <textarea id="r_outcome" rows="2"></textarea></label>
+<label>Population <textarea id="r_population" rows="2"></textarea></label>
+<label>Negative controls <textarea id="r_negative_controls" rows="2"></textarea></label>
+<label>Uncertainty <textarea id="sc_uncertainty" rows="2"></textarea></label>
+<label>Assessor <input id="sc_assessor"></label>
+<label>Date <input id="sc_date" type="date"></label>
+</div>
+</section>
+
+<section aria-labelledby="val-h">
+<h2 id="val-h">4. Validate</h2>
+<button type="button" id="btn-validate">Validate inputs</button>
+<div id="val-out" role="status" aria-live="polite"></div>
+</section>
+
+<section aria-labelledby="rct-h">
+<h2 id="rct-h">5. Primary result: RCT-only</h2>
+<div id="rct-out" class="prim"><p>Validate inputs to see the RCT-only result.</p></div>
+</section>
+
+<section aria-labelledby="run-h">
+<h2 id="run-h">6. Borrowing analyses and report</h2>
+<p><button type="button" id="btn-run" disabled>Run full analysis in this browser</button></p>
+<div id="run-out"></div>
+</section>
+
+<section aria-labelledby="loc-h">
+<h2 id="loc-h">7. Run locally instead (same engine, Python package)</h2>
+<p><button type="button" id="btn-job-out">Download kotha_job.json</button></p>
+<p>Then on your computer (Python 3.10+), in the folder containing <code>kotha_job.json</code>:</p>
+<pre class="cmd">python -m venv kotha-env
+# Windows PowerShell:  kotha-env\Scripts\Activate.ps1
+# macOS / Linux:       source kotha-env/bin/activate
+pip install kotha-0.2.0rc1-py3-none-any.whl
+kotha validate kotha_job.json
+kotha run kotha_job.json --output kotha_result.json --report kotha_report.html</pre>
+<p class="small">The wheel is included in this site build (<code>py/</code>); its version and source commit are shown at the bottom of the page.</p>
+<p><label for="file-result">Import kotha_result.json:</label> <input type="file" id="file-result" accept=".json,application/json"></p>
+<p><button type="button" id="btn-import-cancel" hidden>Cancel verification</button></p>
+<div id="import-out" role="status" aria-live="polite"></div>
+</section>
+</main>
+<footer><p class="small" id="build"></p><p class="small">KOTHA code: MIT licence. Third-party runtime notices: <a href="third_party/NOTICES.md">third_party/NOTICES.md</a>.</p></footer>
+</body>
+</html>

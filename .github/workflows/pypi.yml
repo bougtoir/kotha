@@ -1,0 +1,44 @@
+# Manual only. Uploads the exact wheel and sdist attached to an existing GitHub release after checking
+# them against that release's SHA256SUMS. Uses PyPI trusted publishing (OIDC); no token is stored.
+# The "testpypi" and "pypi" environments should require a reviewer (Settings > Environments).
+name: Publish release assets to (Test)PyPI (manual)
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing GitHub release tag, e.g. v0.2.0rc1"
+        required: true
+      target:
+        description: "testpypi or pypi"
+        required: true
+        type: choice
+        options: [testpypi, pypi]
+permissions:
+  contents: read
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.target }}
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Download and verify release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag }}
+        run: |
+          mkdir dist && cd dist
+          gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --pattern 'kotha-*.whl' --pattern 'kotha-*.tar.gz' --pattern 'SHA256SUMS'
+          grep -E ' [ *]?(kotha-.*\.whl|kotha-.*\.tar\.gz)$' SHA256SUMS > ../expected.sha256
+          test -s ../expected.sha256 && sha256sum -c ../expected.sha256
+          rm SHA256SUMS
+          # refuse to publish any downloaded file that SHA256SUMS does not list
+          diff <(sed -E 's/^[0-9a-f]{64} [ *]?//' ../expected.sha256 | sort) <(ls -1A | sort)
+          ls -l
+      - if: inputs.target == 'testpypi'
+        uses: pypa/gh-action-pypi-publish@7245906fb61fa33a13554f9d5fb856fe61758086 # release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
+      - if: inputs.target == 'pypi'
+        uses: pypa/gh-action-pypi-publish@7245906fb61fa33a13554f9d5fb856fe61758086 # release/v1

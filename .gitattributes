@@ -1,0 +1,27 @@
+# Hash-sensitive KOTHA files must keep LF on every platform (e.g. Git for Windows core.autocrlf=true):
+# the frozen engine and numerical ledger are identified by byte-level SHA-256.
+code/*.py text eol=lf
+results/*.json text eol=lf
+kotha_pkg/src/** text eol=lf
+kotha_pkg/examples/** text eol=lf
+kotha_pkg/tests/** text eol=lf
+kotha_pkg/pyproject.toml text eol=lf
+kotha_pkg/README.md text eol=lf
+kotha_pkg/LICENSE text eol=lf
+webapp/build.py text eol=lf
+webapp/src/** text eol=lf
+webapp/third_party/** text eol=lf
+# Raw acquired files and their ledgers are stored byte-for-byte (SHA-256 recorded in the acquisition ledgers).
+data/raw/** -text
+# Tool scripts and build tests must stay runnable after a Windows checkout (a CRLF 'set -o pipefail' line breaks bash).
+kotha_pkg/tools/**/*.sh text eol=lf
+kotha_pkg/tools/**/*.py text eol=lf
+kotha_pkg/tools/**/*.R text eol=lf
+kotha_pkg/tools/**/*.json text eol=lf
+webapp/tests/** text eol=lf
+
+# Root documents
+*.md text eol=lf
+*.cff text eol=lf
+.github/** text eol=lf
+LICENSE text eol=lf

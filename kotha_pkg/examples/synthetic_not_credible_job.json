@@ -1,0 +1,145 @@
+{
+ "schema": "kotha-job",
+ "schema_version": "1.0",
+ "analysis_id": "synthetic-conflict",
+ "title": "Synthetic illustration (synthetic-conflict)",
+ "target_estimand": {
+  "population": "synthetic",
+  "treatment_contrast": "synthetic treatment vs control",
+  "outcome": "synthetic outcome",
+  "follow_up": "synthetic",
+  "effect_measure": "HR",
+  "estimand_type": "ITT"
+ },
+ "clinically_relevant_ratio": 0.85,
+ "estimates": [
+  {
+   "label": "Synthetic RCT 1",
+   "role": "rct",
+   "effect_measure": "HR",
+   "estimate": 0.951229424500714,
+   "ci_lower": null,
+   "ci_upper": null,
+   "ci_level": null,
+   "se_log": 0.05,
+   "population": "synthetic",
+   "treatment_contrast": "synthetic treatment vs control",
+   "outcome": "synthetic outcome",
+   "follow_up": "synthetic",
+   "estimand_type": "ITT",
+   "source_doi": "not applicable (synthetic)",
+   "source_locator": "R1/software_s1/benchmark/make_inputs.py",
+   "verification_level": "synthetic"
+  },
+  {
+   "label": "Synthetic RCT 2",
+   "role": "rct",
+   "effect_measure": "HR",
+   "estimate": 1.0,
+   "ci_lower": null,
+   "ci_upper": null,
+   "ci_level": null,
+   "se_log": 0.06,
+   "population": "synthetic",
+   "treatment_contrast": "synthetic treatment vs control",
+   "outcome": "synthetic outcome",
+   "follow_up": "synthetic",
+   "estimand_type": "ITT",
+   "source_doi": "not applicable (synthetic)",
+   "source_locator": "R1/software_s1/benchmark/make_inputs.py",
+   "verification_level": "synthetic"
+  },
+  {
+   "label": "Synthetic external 1",
+   "role": "external",
+   "effect_measure": "HR",
+   "estimate": 0.4065696597405991,
+   "ci_lower": null,
+   "ci_upper": null,
+   "ci_level": null,
+   "se_log": 0.08,
+   "population": "synthetic",
+   "treatment_contrast": "synthetic treatment vs control",
+   "outcome": "synthetic outcome",
+   "follow_up": "synthetic",
+   "estimand_type": "ITT",
+   "source_doi": "not applicable (synthetic)",
+   "source_locator": "R1/software_s1/benchmark/make_inputs.py",
+   "verification_level": "synthetic"
+  },
+  {
+   "label": "Synthetic external 2",
+   "role": "external",
+   "effect_measure": "HR",
+   "estimate": 0.33287108369807955,
+   "ci_lower": null,
+   "ci_upper": null,
+   "ci_level": null,
+   "se_log": 0.1,
+   "population": "synthetic",
+   "treatment_contrast": "synthetic treatment vs control",
+   "outcome": "synthetic outcome",
+   "follow_up": "synthetic",
+   "estimand_type": "ITT",
+   "source_doi": "not applicable (synthetic)",
+   "source_locator": "R1/software_s1/benchmark/make_inputs.py",
+   "verification_level": "synthetic"
+  },
+  {
+   "label": "Synthetic external 3",
+   "role": "external",
+   "effect_measure": "HR",
+   "estimate": 0.44932896411722156,
+   "ci_lower": null,
+   "ci_upper": null,
+   "ci_level": null,
+   "se_log": 0.09,
+   "population": "synthetic",
+   "treatment_contrast": "synthetic treatment vs control",
+   "outcome": "synthetic outcome",
+   "follow_up": "synthetic",
+   "estimand_type": "ITT",
+   "source_doi": "not applicable (synthetic)",
+   "source_locator": "R1/software_s1/benchmark/make_inputs.py",
+   "verification_level": "synthetic"
+  }
+ ],
+ "settings": {
+  "tau_prior": {
+   "family": "halfnormal",
+   "scale": 0.5
+  },
+  "robust_map_w_vague": [
+   0.2,
+   0.5,
+   0.8
+  ],
+  "fixed_alpha_grid": [
+   0.1,
+   0.2,
+   0.3,
+   0.5,
+   0.7,
+   1.0
+  ],
+  "tipping_thresholds": [
+   0.975,
+   0.95
+  ],
+  "tipping_alpha_step": 0.01,
+  "credible_level": 0.95
+ },
+ "stage_c": {
+  "judgement": "not_credible",
+  "reasons": {
+   "confounding": "synthetic illustration: assumed inadequate",
+   "treatment_definition": "synthetic illustration: assumed inadequate",
+   "outcome": "synthetic illustration: assumed inadequate",
+   "population": "synthetic illustration: assumed inadequate",
+   "negative_controls": "synthetic illustration: assumed inadequate"
+  },
+  "uncertainty": "illustrative",
+  "assessor": "DEMONSTRATION ONLY (synthetic)",
+  "date": "2026-11-22"
+ }
+}

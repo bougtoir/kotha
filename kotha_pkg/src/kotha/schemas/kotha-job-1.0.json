@@ -1,0 +1,325 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "kotha-job-1.0.json",
+ "title": "kotha-job 1.0",
+ "description": "Generate JSON Schema (2020-12) documents for kotha-job / kotha-result 1.0 from the validator constants.\n\nThe schemas describe structure only; semantic rules (CI order, estimate inside CI, Stage C reasons,\nmixed measures, hashes) are enforced by kotha.validate / kotha.contract, which remain authoritative.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "schema",
+  "schema_version",
+  "analysis_id",
+  "target_estimand",
+  "clinically_relevant_ratio",
+  "estimates"
+ ],
+ "properties": {
+  "schema": {
+   "const": "kotha-job"
+  },
+  "schema_version": {
+   "const": "1.0"
+  },
+  "analysis_id": {
+   "type": "string",
+   "pattern": "^[A-Za-z0-9._-]{1,64}$"
+  },
+  "title": {
+   "type": [
+    "string",
+    "null"
+   ],
+   "maxLength": 2000
+  },
+  "target_estimand": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "population",
+    "treatment_contrast",
+    "outcome",
+    "follow_up",
+    "effect_measure",
+    "estimand_type"
+   ],
+   "properties": {
+    "population": {
+     "type": "string",
+     "maxLength": 2000
+    },
+    "treatment_contrast": {
+     "type": "string",
+     "maxLength": 2000
+    },
+    "outcome": {
+     "type": "string",
+     "maxLength": 2000
+    },
+    "follow_up": {
+     "type": "string",
+     "maxLength": 2000
+    },
+    "effect_measure": {
+     "enum": [
+      "HR",
+      "OR",
+      "RR"
+     ]
+    },
+    "estimand_type": {
+     "enum": [
+      "ITT",
+      "mITT",
+      "as-treated",
+      "per-protocol",
+      "other"
+     ]
+    }
+   }
+  },
+  "clinically_relevant_ratio": {
+   "type": "number",
+   "exclusiveMinimum": 0
+  },
+  "estimates": {
+   "type": "array",
+   "minItems": 2,
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "label",
+     "role",
+     "effect_measure",
+     "estimate",
+     "verification_level"
+    ],
+    "properties": {
+     "label": {
+      "type": "string",
+      "maxLength": 2000
+     },
+     "role": {
+      "enum": [
+       "rct",
+       "external"
+      ]
+     },
+     "effect_measure": {
+      "enum": [
+       "HR",
+       "OR",
+       "RR"
+      ]
+     },
+     "estimate": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "ci_lower": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "ci_upper": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "ci_level": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "se_log": {
+      "type": [
+       "number",
+       "null"
+      ]
+     },
+     "population": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 2000
+     },
+     "treatment_contrast": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 2000
+     },
+     "outcome": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 2000
+     },
+     "follow_up": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 2000
+     },
+     "estimand_type": {
+      "enum": [
+       "ITT",
+       "mITT",
+       "as-treated",
+       "per-protocol",
+       "other",
+       null
+      ]
+     },
+     "source_doi": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 2000
+     },
+     "source_locator": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 2000
+     },
+     "verification_level": {
+      "enum": [
+       "full_text",
+       "abstract",
+       "secondary",
+       "unverified",
+       "synthetic"
+      ]
+     }
+    }
+   }
+  },
+  "settings": {
+   "const": {
+    "tau_prior": {
+     "family": "halfnormal",
+     "scale": 0.5
+    },
+    "robust_map_w_vague": [
+     0.2,
+     0.5,
+     0.8
+    ],
+    "fixed_alpha_grid": [
+     0.1,
+     0.2,
+     0.3,
+     0.5,
+     0.7,
+     1.0
+    ],
+    "tipping_thresholds": [
+     0.975,
+     0.95
+    ],
+    "tipping_alpha_step": 0.01,
+    "credible_level": 0.95
+   }
+  },
+  "stage_c": {
+   "type": [
+    "object",
+    "null"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "judgement": {
+     "enum": [
+      "credible",
+      "not_credible",
+      "uncertain",
+      null
+     ]
+    },
+    "reasons": {
+     "type": "object",
+     "additionalProperties": false,
+     "properties": {
+      "confounding": {
+       "type": [
+        "string",
+        "null"
+       ],
+       "maxLength": 2000
+      },
+      "treatment_definition": {
+       "type": [
+        "string",
+        "null"
+       ],
+       "maxLength": 2000
+      },
+      "outcome": {
+       "type": [
+        "string",
+        "null"
+       ],
+       "maxLength": 2000
+      },
+      "population": {
+       "type": [
+        "string",
+        "null"
+       ],
+       "maxLength": 2000
+      },
+      "negative_controls": {
+       "type": [
+        "string",
+        "null"
+       ],
+       "maxLength": 2000
+      }
+     }
+    },
+    "uncertainty": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "maxLength": 2000
+    },
+    "assessor": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "maxLength": 2000
+    },
+    "date": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "maxLength": 2000
+    }
+   }
+  },
+  "client": {
+   "type": "object",
+   "description": "metadata of the creating client; excluded from input_hash"
+  },
+  "input_hash": {
+   "type": "string",
+   "pattern": "^sha256:[0-9a-f]{64}$",
+   "description": "sha256 of canonical JSON of the job without input_hash and client"
+  }
+ }
+}

@@ -1,0 +1,10 @@
+
+# S2 redistributable runtime binaries (ledgered in data/raw/software_s2/ACQUISITION_LEDGER_S2.csv)
+data/raw/software_s2/pyodide-0.26.4/
+webapp/dist/
+kotha_pkg/dist/
+kotha_pkg/build/
+*.egg-info/
+webapp/qc/tmp/
+kotha_pkg/tools/r_crosscheck/__pycache__/
+**/__pycache__/

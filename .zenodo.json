@@ -1,0 +1,10 @@
+{
+  "upload_type": "software",
+  "title": "KOTHA: RCT-anchored conditional borrowing workflow",
+  "version": "0.2.0rc1",
+  "creators": [{"name": "Onishi, Tatsuki"}],
+  "description": "Decision/reporting workflow for RCT-anchored, conditional borrowing of external aggregate evidence (HR, OR, RR). Uses established methods (fixed-alpha and normalised power priors, robust MAP) through a frozen engine (SHA-256 7b7d07f4bf6e29833ea869e82db5141258a8408682aa2f3ddd1e6059a8a2e7ef). It is not a novel Bayesian estimator and showed no net decision advantage over robust MAP with the same observable screen in the accompanying simulations. Research use only.",
+  "license": "MIT",
+  "keywords": ["evidence synthesis", "power prior", "robust MAP", "external evidence", "randomized controlled trials", "reproducibility"],
+  "access_right": "open"
+}

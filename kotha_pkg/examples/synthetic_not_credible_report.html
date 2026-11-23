@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'>
+<meta http-equiv='Content-Security-Policy' content="default-src 'none'; style-src 'unsafe-inline'">
+<title>KOTHA report synthetic-conflict</title><style>body{font-family:system-ui,sans-serif;max-width:1100px;margin:1rem auto;padding:0 1rem;color:#111}table{border-collapse:collapse;width:100%;margin:.5rem 0}td,th{border:1px solid #999;padding:.25rem .4rem;font-size:.85rem;text-align:left}.warn{border:2px solid #a00;background:#fff4f4;padding:.5rem 1rem}.expl{border:2px dashed #a60;padding:.5rem;background:#fffaf0}.prim{border:2px solid #035;padding:.5rem;background:#f3f8ff}code{font-size:.8rem;word-break:break-all}</style></head><body>
+<h1>KOTHA analysis report: Synthetic illustration (synthetic-conflict)</h1>
+<div class='warn'><strong>Limitations (always shown)</strong><ul>
+<li>Research use only. Not validated for individual treatment decisions.</li>
+<li>Aggregate data cannot distinguish bias in external evidence from genuine effect modification.</li>
+<li>No automatic causal transportability: compatibility statistics are not evidence of exchangeability.</li>
+<li>In the R1 simulations, the KOTHA workflow showed no net decision advantage over robust MAP combined with the same observable screen.</li>
+<li>The prespecified Stage C beneficial-borrowing threshold failed in R1 (0.4895 &lt; 0.5).</li>
+<li>The Stage C design-credibility judgement is recorded as entered by the named assessor; the software does not verify it.</li>
+</ul></div>
+<h2>1. Target estimand</h2><table>
+<tr><th>population</th><td>synthetic</td></tr>
+<tr><th>treatment_contrast</th><td>synthetic treatment vs control</td></tr>
+<tr><th>outcome</th><td>synthetic outcome</td></tr>
+<tr><th>follow_up</th><td>synthetic</td></tr>
+<tr><th>effect_measure</th><td>HR</td></tr>
+<tr><th>estimand_type</th><td>ITT</td></tr>
+<tr><th>clinically relevant ratio</th><td>0.850</td></tr></table>
+<h2>2. Inputs and provenance</h2><table><tr><th>label</th><th>role</th><th>measure</th><th>estimate</th><th>CI / SE (log)</th><th>population</th><th>contrast</th><th>outcome</th><th>follow-up</th><th>estimand</th><th>source</th><th>locator</th><th>verification</th></tr>
+<tr><td>Synthetic RCT 1</td><td>rct</td><td>HR</td><td>0.951</td><td>SE 0.0500</td><td>synthetic</td><td>synthetic treatment vs control</td><td>synthetic outcome</td><td>synthetic</td><td>ITT</td><td>not applicable (synthetic)</td><td>R1/software_s1/benchmark/make_inputs.py</td><td>synthetic</td></tr>
+<tr><td>Synthetic RCT 2</td><td>rct</td><td>HR</td><td>1.000</td><td>SE 0.0600</td><td>synthetic</td><td>synthetic treatment vs control</td><td>synthetic outcome</td><td>synthetic</td><td>ITT</td><td>not applicable (synthetic)</td><td>R1/software_s1/benchmark/make_inputs.py</td><td>synthetic</td></tr>
+<tr><td>Synthetic external 1</td><td>external</td><td>HR</td><td>0.407</td><td>SE 0.0800</td><td>synthetic</td><td>synthetic treatment vs control</td><td>synthetic outcome</td><td>synthetic</td><td>ITT</td><td>not applicable (synthetic)</td><td>R1/software_s1/benchmark/make_inputs.py</td><td>synthetic</td></tr>
+<tr><td>Synthetic external 2</td><td>external</td><td>HR</td><td>0.333</td><td>SE 0.1000</td><td>synthetic</td><td>synthetic treatment vs control</td><td>synthetic outcome</td><td>synthetic</td><td>ITT</td><td>not applicable (synthetic)</td><td>R1/software_s1/benchmark/make_inputs.py</td><td>synthetic</td></tr>
+<tr><td>Synthetic external 3</td><td>external</td><td>HR</td><td>0.449</td><td>SE 0.0900</td><td>synthetic</td><td>synthetic treatment vs control</td><td>synthetic outcome</td><td>synthetic</td><td>ITT</td><td>not applicable (synthetic)</td><td>R1/software_s1/benchmark/make_inputs.py</td><td>synthetic</td></tr>
+</table>
+<p>Provenance complete: <strong>yes</strong></p>
+<ul><li><code>F_SYNTHETIC</code> estimates[0]: synthetic illustrative value, not real data</li><li><code>F_SYNTHETIC</code> estimates[1]: synthetic illustrative value, not real data</li><li><code>F_SYNTHETIC</code> estimates[2]: synthetic illustrative value, not real data</li><li><code>F_SYNTHETIC</code> estimates[3]: synthetic illustrative value, not real data</li><li><code>F_SYNTHETIC</code> estimates[4]: synthetic illustrative value, not real data</li></ul>
+<h2>3. Primary result: RCT-only</h2><div class='prim'>
+<p>Median ratio 0.973 (95% CrI 0.618–1.538); P(ratio &lt; 1) = 0.625; k = 2; information fraction vs ratio 0.85 = 2.281.</p></div>
+<h2>4. Stage C design-credibility record (user-authored, not verified by software)</h2><table>
+<tr><th>judgement</th><td>not_credible</td></tr>
+<tr><th>reason: confounding</th><td>synthetic illustration: assumed inadequate</td></tr>
+<tr><th>reason: treatment_definition</th><td>synthetic illustration: assumed inadequate</td></tr>
+<tr><th>reason: outcome</th><td>synthetic illustration: assumed inadequate</td></tr>
+<tr><th>reason: population</th><td>synthetic illustration: assumed inadequate</td></tr>
+<tr><th>reason: negative_controls</th><td>synthetic illustration: assumed inadequate</td></tr>
+<tr><th>uncertainty</th><td>illustrative</td></tr>
+<tr><th>assessor</th><td>DEMONSTRATION ONLY (synthetic)</td></tr>
+<tr><th>date</th><td>2026-11-22</td></tr>
+</table>
+<p>Prior-data conflict: z = 2.270, p = 0.023. Statistical prior-data conflict diagnostic only; it is not a design or causal assessment.</p>
+<h2>5. Borrowing analyses</h2><div class='expl'><p><strong>EXPLORATORY — not supported by recorded design judgement</strong></p>
+<table><tr><th>method</th><th>median ratio</th><th>95% CrI</th><th>P(ratio&lt;1)</th><th>borrowing strength</th></tr>
+<tr><td>Fixed-alpha power prior (alpha=0.1)</td><td>0.938</td><td>0.464–1.185</td><td>0.771</td><td>0.100</td></tr>
+<tr><td>Fixed-alpha power prior (alpha=0.2)</td><td>0.875</td><td>0.376–1.090</td><td>0.874</td><td>0.200</td></tr>
+<tr><td>Fixed-alpha power prior (alpha=0.3)</td><td>0.716</td><td>0.336–1.035</td><td>0.944</td><td>0.300</td></tr>
+<tr><td>Fixed-alpha power prior (alpha=0.5)</td><td>0.528</td><td>0.314–0.942</td><td>0.994</td><td>0.500</td></tr>
+<tr><td>Fixed-alpha power prior (alpha=0.7)</td><td>0.477</td><td>0.312–0.758</td><td>1.000</td><td>0.700</td></tr>
+<tr><td>Fixed-alpha power prior (alpha=1.0)</td><td>0.448</td><td>0.316–0.640</td><td>1.000</td><td>1.000</td></tr>
+<tr><td>Normalised power prior (alpha~U(0,1))</td><td>0.858</td><td>0.347–1.163</td><td>0.841</td><td>0.262</td></tr>
+<tr><td>Robust MAP (w_vague=0.2)</td><td>0.899</td><td>0.373–1.246</td><td>0.810</td><td>0.598</td></tr>
+<tr><td>Robust MAP (w_vague=0.5)</td><td>0.947</td><td>0.424–1.383</td><td>0.716</td><td>0.271</td></tr>
+<tr><td>Robust MAP (w_vague=0.8)</td><td>0.964</td><td>0.509–1.446</td><td>0.663</td><td>0.085</td></tr>
+</table><p>Tipping alpha (smallest fixed alpha with P(ratio&lt;1) ≥ threshold): 0.975: 0.39; 0.95: 0.32</p></div>
+<p>External summary (log scale): m_E = -0.9287, V_E = 0.0301, E[tau_E^2] = 0.0823, k_E = 3.</p>
+<h2>6. Reproducibility</h2><table>
+<tr><th>analysis_id</th><td><code>synthetic-conflict</code></td></tr>
+<tr><th>input_hash</th><td><code>sha256:327b40c1ba1d01d2a635315b039f7c5e276958bb959d7e1e9748c9e6c1278e07</code></td></tr>
+<tr><th>result_hash</th><td><code>sha256:6af64ab34ada7d4a8e7c73a893e63de0efa27b224869319a02a46e6f05091253</code></td></tr>
+<tr><th>created_at</th><td><code>2026-11-22T12:43:49+00:00</code></td></tr>
+<tr><th>kotha_version</th><td><code>0.2.0rc1</code></td></tr>
+<tr><th>schema_version</th><td><code>1.0</code></td></tr>
+<tr><th>engine_sha256</th><td><code>7b7d07f4bf6e29833ea869e82db5141258a8408682aa2f3ddd1e6059a8a2e7ef</code></td></tr>
+<tr><th>engine matches frozen R1 engine</th><td><code>True</code></td></tr>
+<tr><th>source commit</th><td><code>unrecorded</code></td></tr>
+<tr><th>runtime</th><td><code>{&#x27;access_path&#x27;: &#x27;python-cli&#x27;, &#x27;python&#x27;: &#x27;3.10.12&#x27;, &#x27;numpy&#x27;: &#x27;2.2.6&#x27;, &#x27;scipy&#x27;: &#x27;1.15.3&#x27;, &#x27;platform&#x27;: &#x27;linux&#x27;, &#x27;pyodide&#x27;: None}</code></td></tr>
+</table><p>Settings: tau ~ HalfNormal(0.5); vague prior N(0, 10^2); robust MAP vague component N(m_E, 2^2); 401-point tau grid.</p>
+</body></html>

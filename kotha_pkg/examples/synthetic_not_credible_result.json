@@ -1,0 +1,456 @@
+{
+ "schema": "kotha-result",
+ "schema_version": "1.0",
+ "analysis_id": "synthetic-conflict",
+ "input_hash": "sha256:327b40c1ba1d01d2a635315b039f7c5e276958bb959d7e1e9748c9e6c1278e07",
+ "job": {
+  "schema": "kotha-job",
+  "schema_version": "1.0",
+  "analysis_id": "synthetic-conflict",
+  "title": "Synthetic illustration (synthetic-conflict)",
+  "target_estimand": {
+   "population": "synthetic",
+   "treatment_contrast": "synthetic treatment vs control",
+   "outcome": "synthetic outcome",
+   "follow_up": "synthetic",
+   "effect_measure": "HR",
+   "estimand_type": "ITT"
+  },
+  "clinically_relevant_ratio": 0.85,
+  "estimates": [
+   {
+    "label": "Synthetic RCT 1",
+    "role": "rct",
+    "effect_measure": "HR",
+    "estimate": 0.951229424500714,
+    "ci_lower": null,
+    "ci_upper": null,
+    "ci_level": null,
+    "se_log": 0.05,
+    "population": "synthetic",
+    "treatment_contrast": "synthetic treatment vs control",
+    "outcome": "synthetic outcome",
+    "follow_up": "synthetic",
+    "estimand_type": "ITT",
+    "source_doi": "not applicable (synthetic)",
+    "source_locator": "R1/software_s1/benchmark/make_inputs.py",
+    "verification_level": "synthetic"
+   },
+   {
+    "label": "Synthetic RCT 2",
+    "role": "rct",
+    "effect_measure": "HR",
+    "estimate": 1.0,
+    "ci_lower": null,
+    "ci_upper": null,
+    "ci_level": null,
+    "se_log": 0.06,
+    "population": "synthetic",
+    "treatment_contrast": "synthetic treatment vs control",
+    "outcome": "synthetic outcome",
+    "follow_up": "synthetic",
+    "estimand_type": "ITT",
+    "source_doi": "not applicable (synthetic)",
+    "source_locator": "R1/software_s1/benchmark/make_inputs.py",
+    "verification_level": "synthetic"
+   },
+   {
+    "label": "Synthetic external 1",
+    "role": "external",
+    "effect_measure": "HR",
+    "estimate": 0.4065696597405991,
+    "ci_lower": null,
+    "ci_upper": null,
+    "ci_level": null,
+    "se_log": 0.08,
+    "population": "synthetic",
+    "treatment_contrast": "synthetic treatment vs control",
+    "outcome": "synthetic outcome",
+    "follow_up": "synthetic",
+    "estimand_type": "ITT",
+    "source_doi": "not applicable (synthetic)",
+    "source_locator": "R1/software_s1/benchmark/make_inputs.py",
+    "verification_level": "synthetic"
+   },
+   {
+    "label": "Synthetic external 2",
+    "role": "external",
+    "effect_measure": "HR",
+    "estimate": 0.33287108369807955,
+    "ci_lower": null,
+    "ci_upper": null,
+    "ci_level": null,
+    "se_log": 0.1,
+    "population": "synthetic",
+    "treatment_contrast": "synthetic treatment vs control",
+    "outcome": "synthetic outcome",
+    "follow_up": "synthetic",
+    "estimand_type": "ITT",
+    "source_doi": "not applicable (synthetic)",
+    "source_locator": "R1/software_s1/benchmark/make_inputs.py",
+    "verification_level": "synthetic"
+   },
+   {
+    "label": "Synthetic external 3",
+    "role": "external",
+    "effect_measure": "HR",
+    "estimate": 0.44932896411722156,
+    "ci_lower": null,
+    "ci_upper": null,
+    "ci_level": null,
+    "se_log": 0.09,
+    "population": "synthetic",
+    "treatment_contrast": "synthetic treatment vs control",
+    "outcome": "synthetic outcome",
+    "follow_up": "synthetic",
+    "estimand_type": "ITT",
+    "source_doi": "not applicable (synthetic)",
+    "source_locator": "R1/software_s1/benchmark/make_inputs.py",
+    "verification_level": "synthetic"
+   }
+  ],
+  "settings": {
+   "tau_prior": {
+    "family": "halfnormal",
+    "scale": 0.5
+   },
+   "robust_map_w_vague": [
+    0.2,
+    0.5,
+    0.8
+   ],
+   "fixed_alpha_grid": [
+    0.1,
+    0.2,
+    0.3,
+    0.5,
+    0.7,
+    1.0
+   ],
+   "tipping_thresholds": [
+    0.975,
+    0.95
+   ],
+   "tipping_alpha_step": 0.01,
+   "credible_level": 0.95
+  },
+  "stage_c": {
+   "judgement": "not_credible",
+   "reasons": {
+    "confounding": "synthetic illustration: assumed inadequate",
+    "treatment_definition": "synthetic illustration: assumed inadequate",
+    "outcome": "synthetic illustration: assumed inadequate",
+    "population": "synthetic illustration: assumed inadequate",
+    "negative_controls": "synthetic illustration: assumed inadequate"
+   },
+   "uncertainty": "illustrative",
+   "assessor": "DEMONSTRATION ONLY (synthetic)",
+   "date": "2026-11-22"
+  },
+  "input_hash": "sha256:327b40c1ba1d01d2a635315b039f7c5e276958bb959d7e1e9748c9e6c1278e07"
+ },
+ "created_at": "2026-11-22T12:43:49+00:00",
+ "validation": {
+  "errors": [],
+  "warnings": [],
+  "flags": [
+   {
+    "code": "F_SYNTHETIC",
+    "path": "estimates[0]",
+    "message": "synthetic illustrative value, not real data"
+   },
+   {
+    "code": "F_SYNTHETIC",
+    "path": "estimates[1]",
+    "message": "synthetic illustrative value, not real data"
+   },
+   {
+    "code": "F_SYNTHETIC",
+    "path": "estimates[2]",
+    "message": "synthetic illustrative value, not real data"
+   },
+   {
+    "code": "F_SYNTHETIC",
+    "path": "estimates[3]",
+    "message": "synthetic illustrative value, not real data"
+   },
+   {
+    "code": "F_SYNTHETIC",
+    "path": "estimates[4]",
+    "message": "synthetic illustrative value, not real data"
+   }
+  ]
+ },
+ "provenance_complete": true,
+ "settings": {
+  "tau_prior": {
+   "family": "halfnormal",
+   "scale": 0.5
+  },
+  "robust_map_w_vague": [
+   0.2,
+   0.5,
+   0.8
+  ],
+  "fixed_alpha_grid": [
+   0.1,
+   0.2,
+   0.3,
+   0.5,
+   0.7,
+   1.0
+  ],
+  "tipping_thresholds": [
+   0.975,
+   0.95
+  ],
+  "tipping_alpha_step": 0.01,
+  "credible_level": 0.95
+ },
+ "results": {
+  "primary": "rct_only",
+  "rct_only": {
+   "method": "RCT-only (Bayesian RE)",
+   "family": "reference",
+   "parameter": null,
+   "ratio_median": 0.9730278255883873,
+   "ratio_lo": 0.6183559613524494,
+   "ratio_hi": 1.5382096780225971,
+   "post_mean_log": -0.02638500109399885,
+   "post_sd_log": 0.21328713752792428,
+   "P_lt_1": 0.6250462161545526,
+   "P_lt_0.90": 0.21392429361426077,
+   "P_lt_0.85": 0.13326629251905564,
+   "P_lt_0.80": 0.09017736356457759,
+   "borrowing_strength": 0.0,
+   "k": 2,
+   "dl_tau2": 0.0,
+   "required_information": 297.1664448420666,
+   "clinically_relevant_ratio": 0.85,
+   "fisher_information_dl": 677.7777777777778,
+   "fisher_information_fe": 677.7777777777778,
+   "info_fraction_dl": 2.280801852100067,
+   "info_fraction_fe": 2.280801852100067,
+   "info_fraction": 2.280801852100067
+  },
+  "external_summary": {
+   "m_E": -0.9286668258985067,
+   "V_E": 0.030117012328637505,
+   "T2_E": 0.08233173868805288,
+   "k_E": 3
+  },
+  "conflict_diagnostics": {
+   "z": 2.2703662938320157,
+   "p": 0.023185367799330815,
+   "note": "Statistical prior-data conflict diagnostic only; it is not a design or causal assessment."
+  },
+  "borrowing": {
+   "status": "exploratory",
+   "label": "EXPLORATORY — not supported by recorded design judgement",
+   "stage_c_judgement": "not_credible",
+   "methods": [
+    {
+     "method": "Fixed-alpha power prior (alpha=0.1)",
+     "family": "fixed-alpha sensitivity",
+     "parameter": {
+      "alpha": 0.1
+     },
+     "ratio_median": 0.9384300302655042,
+     "ratio_lo": 0.463904758426817,
+     "ratio_hi": 1.1846998259011698,
+     "post_mean_log": -0.1250763629648656,
+     "post_sd_log": 0.22625886858189342,
+     "P_lt_1": 0.7705870002702774,
+     "P_lt_0.90": 0.36503854943610303,
+     "P_lt_0.85": 0.2647852746550877,
+     "P_lt_0.80": 0.20239122902247614,
+     "borrowing_strength": 0.1
+    },
+    {
+     "method": "Fixed-alpha power prior (alpha=0.2)",
+     "family": "fixed-alpha sensitivity",
+     "parameter": {
+      "alpha": 0.2
+     },
+     "ratio_median": 0.8749540336011936,
+     "ratio_lo": 0.37597041586713614,
+     "ratio_hi": 1.089855550537711,
+     "post_mean_log": -0.24097836968226116,
+     "post_sd_log": 0.2859229363387016,
+     "P_lt_1": 0.8739612157381619,
+     "P_lt_0.90": 0.5549863150970514,
+     "P_lt_0.85": 0.45614496892996304,
+     "P_lt_0.80": 0.38449033956457696,
+     "borrowing_strength": 0.2
+    },
+    {
+     "method": "Fixed-alpha power prior (alpha=0.3)",
+     "family": "fixed-alpha sensitivity",
+     "parameter": {
+      "alpha": 0.3
+     },
+     "ratio_median": 0.7163320250221098,
+     "ratio_lo": 0.3362328389800716,
+     "ratio_hi": 1.0354341994282432,
+     "post_mean_log": -0.3865902532186449,
+     "post_sd_log": 0.3214074851623707,
+     "P_lt_1": 0.9435136186224324,
+     "P_lt_0.90": 0.7471278729125668,
+     "P_lt_0.85": 0.6712371137610688,
+     "P_lt_0.80": 0.607156200415359,
+     "borrowing_strength": 0.3
+    },
+    {
+     "method": "Fixed-alpha power prior (alpha=0.5)",
+     "family": "fixed-alpha sensitivity",
+     "parameter": {
+      "alpha": 0.5
+     },
+     "ratio_median": 0.5281386640444364,
+     "ratio_lo": 0.313682474977494,
+     "ratio_hi": 0.9416078187985365,
+     "post_mean_log": -0.627573661337394,
+     "post_sd_log": 0.2817742478264926,
+     "P_lt_1": 0.9938634947987128,
+     "P_lt_0.90": 0.9556654545688346,
+     "P_lt_0.85": 0.9330554493056613,
+     "P_lt_0.80": 0.9071604404808196,
+     "borrowing_strength": 0.5
+    },
+    {
+     "method": "Fixed-alpha power prior (alpha=0.7)",
+     "family": "fixed-alpha sensitivity",
+     "parameter": {
+      "alpha": 0.7
+     },
+     "ratio_median": 0.47675533426450867,
+     "ratio_lo": 0.3124490171172186,
+     "ratio_hi": 0.7575035518557937,
+     "post_mean_log": -0.7363255441400224,
+     "post_sd_log": 0.2237763832731251,
+     "P_lt_1": 0.9995684727124508,
+     "P_lt_0.90": 0.9948927615807476,
+     "P_lt_0.85": 0.9907355824475524,
+     "P_lt_0.80": 0.9842798286865851,
+     "borrowing_strength": 0.7
+    },
+    {
+     "method": "Fixed-alpha power prior (alpha=1.0)",
+     "family": "fixed-alpha sensitivity",
+     "parameter": {
+      "alpha": 1.0
+     },
+     "ratio_median": 0.44800557032989663,
+     "ratio_lo": 0.31646430038339646,
+     "ratio_hi": 0.6395906370186933,
+     "post_mean_log": -0.8018738421270221,
+     "post_sd_log": 0.17942076375793203,
+     "P_lt_1": 0.9999935765742343,
+     "P_lt_0.90": 0.9998355434687418,
+     "P_lt_0.85": 0.9995853554041214,
+     "P_lt_0.80": 0.998972365925622,
+     "borrowing_strength": 1.0
+    },
+    {
+     "method": "Normalised power prior (alpha~U(0,1))",
+     "family": "adaptive comparator",
+     "parameter": null,
+     "ratio_median": 0.8577254686106239,
+     "ratio_lo": 0.3473661885655786,
+     "ratio_hi": 1.1626139956981432,
+     "post_mean_log": -0.2991062444780151,
+     "post_sd_log": 0.3522574051015843,
+     "P_lt_1": 0.8414041071992465,
+     "P_lt_0.90": 0.5641151641477429,
+     "P_lt_0.85": 0.4909081690570162,
+     "P_lt_0.80": 0.4413942157976377,
+     "borrowing_strength": 0.26182351934580606
+    },
+    {
+     "method": "Robust MAP (w_vague=0.2)",
+     "family": "robust-weight sensitivity",
+     "parameter": {
+      "w_vague": 0.2
+     },
+     "ratio_median": 0.8990852258047225,
+     "ratio_lo": 0.3733391374391834,
+     "ratio_hi": 1.2463968413537259,
+     "post_mean_log": -0.21667271803404498,
+     "post_sd_log": 0.3136259835078662,
+     "P_lt_1": 0.8099082237304284,
+     "P_lt_0.90": 0.5019859530182897,
+     "P_lt_0.85": 0.41786230162154764,
+     "P_lt_0.80": 0.3590094667503064,
+     "borrowing_strength": 0.5976631536463691
+    },
+    {
+     "method": "Robust MAP (w_vague=0.5)",
+     "family": "robust MAP",
+     "parameter": {
+      "w_vague": 0.5
+     },
+     "ratio_median": 0.9469336068256949,
+     "ratio_lo": 0.42420282537752096,
+     "ratio_hi": 1.3831870923481582,
+     "post_mean_log": -0.11784482936410477,
+     "post_sd_log": 0.2756813126786674,
+     "P_lt_1": 0.7163916730067763,
+     "P_lt_0.90": 0.3500796300067131,
+     "P_lt_0.85": 0.26667668627805163,
+     "P_lt_0.80": 0.2155355790386713,
+     "borrowing_strength": 0.2708021294273844
+    },
+    {
+     "method": "Robust MAP (w_vague=0.8)",
+     "family": "robust-weight sensitivity",
+     "parameter": {
+      "w_vague": 0.8
+     },
+     "ratio_median": 0.9637449787950793,
+     "ratio_lo": 0.5085233150873171,
+     "ratio_hi": 1.4456121749667203,
+     "post_mean_log": -0.06165313161838483,
+     "post_sd_log": 0.2336135344998218,
+     "P_lt_1": 0.6632199031429518,
+     "P_lt_0.90": 0.26370852258745164,
+     "P_lt_0.85": 0.18071535982237086,
+     "P_lt_0.80": 0.13395899735512726,
+     "borrowing_strength": 0.08495503580879755
+    }
+   ],
+   "tipping_alpha": {
+    "0.975": 0.39,
+    "0.95": 0.32
+   }
+  }
+ },
+ "limitations": [
+  "Research use only. Not validated for individual treatment decisions.",
+  "Aggregate data cannot distinguish bias in external evidence from genuine effect modification.",
+  "No automatic causal transportability: compatibility statistics are not evidence of exchangeability.",
+  "In the R1 simulations, the KOTHA workflow showed no net decision advantage over robust MAP combined with the same observable screen.",
+  "The prespecified Stage C beneficial-borrowing threshold failed in R1 (0.4895 < 0.5).",
+  "The Stage C design-credibility judgement is recorded as entered by the named assessor; the software does not verify it."
+ ],
+ "software": {
+  "kotha_version": "0.2.0rc1",
+  "schema_version": "1.0",
+  "engine_file": "kotha/_engine/kotha_borrow.py",
+  "engine_sha256": "7b7d07f4bf6e29833ea869e82db5141258a8408682aa2f3ddd1e6059a8a2e7ef",
+  "engine_matches_frozen_r1": true,
+  "build": {
+   "source_commit": "unrecorded",
+   "source_dirty": null,
+   "built_at": null
+  },
+  "runtime": {
+   "access_path": "python-cli",
+   "python": "3.10.12",
+   "numpy": "2.2.6",
+   "scipy": "1.15.3",
+   "platform": "linux",
+   "pyodide": null
+  }
+ },
+ "result_hash": "sha256:6af64ab34ada7d4a8e7c73a893e63de0efa27b224869319a02a46e6f05091253"
+}

@@ -1,0 +1,97 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "kotha-result-1.0.json",
+ "title": "kotha-result 1.0",
+ "description": "Structure of a kotha result. Integrity is checked by kotha.contract.verify_result; hash equality does not establish numerical correctness, causal validity or transportability.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "schema",
+  "schema_version",
+  "analysis_id",
+  "input_hash",
+  "job",
+  "created_at",
+  "validation",
+  "provenance_complete",
+  "settings",
+  "results",
+  "limitations",
+  "software",
+  "result_hash"
+ ],
+ "properties": {
+  "schema": {
+   "const": "kotha-result"
+  },
+  "schema_version": {
+   "const": "1.0"
+  },
+  "analysis_id": {
+   "type": "string",
+   "pattern": "^[A-Za-z0-9._-]{1,64}$"
+  },
+  "input_hash": {
+   "type": "string",
+   "pattern": "^sha256:[0-9a-f]{64}$"
+  },
+  "job": {
+   "$ref": "kotha-job-1.0.json"
+  },
+  "created_at": {
+   "type": "string"
+  },
+  "validation": {
+   "type": "object",
+   "required": [
+    "errors",
+    "warnings",
+    "flags"
+   ]
+  },
+  "provenance_complete": {
+   "type": "boolean"
+  },
+  "settings": {
+   "type": "object"
+  },
+  "results": {
+   "type": "object",
+   "required": [
+    "primary",
+    "rct_only",
+    "external_summary",
+    "conflict_diagnostics",
+    "borrowing"
+   ],
+   "properties": {
+    "primary": {
+     "const": "rct_only"
+    }
+   }
+  },
+  "limitations": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   },
+   "minItems": 1
+  },
+  "software": {
+   "type": "object",
+   "required": [
+    "kotha_version",
+    "schema_version",
+    "engine_sha256",
+    "engine_matches_frozen_r1",
+    "build",
+    "runtime"
+   ]
+  },
+  "result_hash": {
+   "type": "string",
+   "pattern": "^sha256:[0-9a-f]{64}$",
+   "description": "sha256 of canonical JSON of the result without result_hash"
+  }
+ }
+}
